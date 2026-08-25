@@ -1,0 +1,24 @@
+# Backend runtime dependencies
+fastapi==0.141.1
+uvicorn==0.52.4
+SQLAlchemy==2.0.52
+pydantic==2.13.4
+pydantic-settings==2.15.0
+python-dotenv==1.2.3
+python-jose==3.5.0
+pwdlib==0.3.1
+argon2-cffi==25.1.0
+
+# Stage 5 - student bulk import (XLSX parsing)
+openpyxl==3.1.5
+
+# Stage 5 - file upload support (CSV/XLSX import + photo upload)
+python-multipart==0.0.20
+
+# Stage 10 - Computer Vision & Face Recognition (local/free)
+opencv-python==5.0.0.93
+numpy==2.5.2
+
+# Test dependencies
+pytest==9.1.1
+httpx==0.28.1
