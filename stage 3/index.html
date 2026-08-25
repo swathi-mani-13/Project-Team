@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Campus | AI Face Recognition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+
+    <header>
+      <div>
+        <p class="eyebrow">E-CAMPUS MANAGEMENT SYSTEM</p>
+        <h1>AI Face Recognition</h1>
+      </div>
+
+      <span id="modelState" class="pill">
+        Loading AI models...
+      </span>
+    </header>
+
+    <p class="notice">
+      Demo only: Face data is saved in this browser. Maximum 70 student profiles.
+    </p>
+
+    <section class="layout">
+
+      <section class="card">
+
+        <div class="card-heading">
+
+          <div>
+            <p class="eyebrow">LIVE CAMERA</p>
+            <h2>Laptop Webcam</h2>
+          </div>
+
+          <span id="cameraState" class="pill">
+            Camera off
+          </span>
+
+        </div>
+
+        <div class="video-wrap">
+
+          <video
+            id="video"
+            autoplay
+            muted
+            playsinline
+          ></video>
+
+          <canvas id="overlay"></canvas>
+
+          <div
+            id="videoHint"
+            class="video-hint"
+          >
+            Press Start Camera to begin
+          </div>
+
+        </div>
+
+        <div class="buttons">
+
+          <button
+            id="startCamera"
+            class="primary"
+          >
+            Start Camera
+          </button>
+
+          <button
+            id="registerFace"
+            class="secondary"
+            disabled
+          >
+            Capture & Register Face
+          </button>
+
+        </div>
+
+        <p
+          id="message"
+          class="message"
+        >
+          Loading face recognition AI models...
+        </p>
+
+        <p class="message">
+          Last monitoring scan:
+          <strong id="lastScan">
+            Not started
+          </strong>
+        </p>
+
+      </section>
+
+
+      <aside class="right-column">
+
+        <section class="card">
+
+          <p class="eyebrow">
+            FACE REGISTRATION
+          </p>
+
+          <h2>
+            Register Student
+          </h2>
+
+          <label>
+            Student Name
+
+            <input
+              id="studentName"
+              type="text"
+              placeholder="e.g. Harris"
+              autocomplete="off"
+            />
+          </label>
+
+          <label>
+            Student ID
+
+            <input
+              id="studentId"
+              type="text"
+              placeholder="e.g. STU1024"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="quality-box">
+
+            <span>
+              Face Quality
+            </span>
+
+            <strong id="quality">
+              Waiting for camera
+            </strong>
+
+          </div>
+
+          <div class="quality-box">
+
+            <span>
+              Registration Time
+            </span>
+
+            <strong id="registrationTime">
+              Not registered
+            </strong>
+
+          </div>
+
+        </section>
+
+
+        <section class="card result-card">
+
+          <p class="eyebrow">
+            RECOGNITION RESULT
+          </p>
+
+          <div id="result">
+
+            <div class="result-icon">
+              ◌
+            </div>
+
+            <h2>
+              Waiting for a face
+            </h2>
+
+            <p>
+              Start the camera and register a student.
+            </p>
+
+          </div>
+
+        </section>
+
+      </aside>
+
+    </section>
+
+
+    <section class="card">
+
+      <div class="card-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            LOCAL PROFILES
+          </p>
+
+          <h2>
+            Registered Students:
+            <span id="registeredCount">
+              0
+            </span>
+            / 70
+          </h2>
+
+        </div>
+
+        <button
+          id="clearProfiles"
+          class="danger"
+        >
+          Clear Demo Data
+        </button>
+
+      </div>
+
+      <div
+        id="studentList"
+        class="student-list"
+      >
+        No students registered yet.
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"
+  ></script>
+
+  <script
+    defer
+    src="app.js"
+  ></script>
+
+</body>
+</html>
